@@ -56,15 +56,10 @@ export default function App() {
 
   useEffect(() => {
     const path = window.location.pathname;
-    const savedAdmin = localStorage.getItem("isAdmin");
 
     if (path === "/admin123") {
       setIsAdmin(true);
-      localStorage.setItem("isAdmin", "true");
       setView("admin");
-      window.history.replaceState({}, "", "/");
-    } else if (savedAdmin === "true") {
-      setIsAdmin(true);
     }
     setLoading(false);
   }, []);
@@ -428,7 +423,6 @@ export default function App() {
 
   const logout = () => {
     setIsAdmin(false);
-    localStorage.removeItem("isAdmin");
     setView("home");
   };
 
